@@ -1,0 +1,17 @@
+name: Windows Learning Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check Windows runner
+        shell: powershell
+        run: |
+          Write-Host "GitHub Actions is working."
+          Write-Host "Computer: $env:COMPUTERNAME"
+          Write-Host "User: $env:USERNAME"
+          Get-ComputerInfo | Select-Object WindowsProductName, WindowsVersion
